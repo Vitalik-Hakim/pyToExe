@@ -1,0 +1,9 @@
+{% extends 'layout.html' %} {% block body %}
+<h1>Download converted file</h1>
+<a
+  class="btn btn-success btn-lg"
+  href="{{ url_for('.downloadFile') }}"
+  role="button"
+  >Download EXE</a
+>
+{% endblock %}
