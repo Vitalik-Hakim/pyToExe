@@ -7,6 +7,8 @@ import requests
 import glob
 import shutil
 from pathlib import Path
+from waitress import serve
+
 DEVELOPMENT_ENV  = True
 
 app = Flask(__name__)
@@ -69,6 +71,10 @@ def convertedfile():
     filename = "".join(res)
     createDirectory = "pyinstaller --onefile {}/{}".format(UPLOAD_FOLDER,filename)
     subprocess.call(createDirectory, shell=True)
+    # subprocess.Popen(['./convert.sh'],
+    #              stdout=subprocess.PIPE, 
+    #              stderr=subprocess.PIPE, an attempt at asynchronous running of sh script to convert py file
+    #              shell=True)
     shutil.rmtree(UPLOAD_FOLDER)
     shutil.rmtree('build')
     os.mkdir(UPLOAD_FOLDER)
@@ -87,5 +93,6 @@ def contact():
     return render_template('contact.html', app_data=app_data)
 
 
-if __name__ == '__main__':
-    app.run(debug=DEVELOPMENT_ENV)
+# if __name__ == '__main__':
+#     serve(app, port=8080, host="0.0.0.0")
+    # app.run(debug=DEVELOPMENT_ENV,threaded=True)
