@@ -1,0 +1,36 @@
+{% extends 'layout.html' %} {% block body %}
+<div class="jumbotron">
+  <h1 class="display-4">Python to EXE converter online</h1>
+  <p class="lead">Easy and simple to use</p>
+  <p>Title: {{ app_data['html_title'] }}</p>
+</head>
+<body>
+<h1> Upload Python File</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <hr>
+
+         <form
+      action="http://localhost:5000/upload"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+          <label>Upload file</label>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" name="files" id="file">
+
+            </label>
+                <label class="custom-file-label" for="pyfile">Python file</label>
+                <input type="submit" class="btn btn-primary" />
+              </div>
+      
+      </div>
+    </form>
+
+        </div>
+      </div>
+    </div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'layout.html' %} {% block body %} <form action="{{
+url_for("ticket")}}" method="post">
+<label for="firstname">Download Ticket</label>
+<input
+  type="text"
+  id="ticket_id"
+  name="download-ticket"
+  placeholder="Enter your ticket"
+/>
+<button type="submit" class="btn btn-success">Download File</button>
+
+<div><b> Dont forget to rename it to your own filename!</b></div>
+{% endblock %}
